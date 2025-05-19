@@ -1,0 +1,209 @@
+/* ----- GLOBAL ----- */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    color: #5D5C61;
+}
+
+.login-background {
+    background-color: #E0E7D9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 60px 20px;
+}
+
+/* -------- CABECERA -------- */
+h2 {
+    margin-bottom: 20px;
+    color: #000000;
+    z-index: 1;
+}
+
+/* ----- CONTENEDOR DE LOGIN ------ */
+.login-container {
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    max-width: 400px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(93, 92, 97, 0.2);
+    overflow: visible; 
+}
+
+/* Plumiglia por detrás */
+.login-container::before {
+    content: "";
+    position: absolute;
+    left: -120px;
+    top: -120px;
+    width: 700px;
+    height: 700px;
+    background: url('plumiglia.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.30; 
+    pointer-events: none; 
+    z-index: 0;
+}
+
+/* ---- FORMULARIO ----- */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #5D5C61;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* ---- OPCIONES----- */
+.options {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* ------ ACCIONES DE LOGIN ------ */
+.login-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.login-btn {
+    background-color: #A47C6F;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #8e6a5e;
+}
+
+.forgot {
+    color: #1a73e8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* ---- SEPARADOR ---- */
+.separator {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    color: #5D5C61;
+}
+
+.separator span {
+    padding: 0 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background: #5D5C61;
+}
+
+.separator::before { left: 0; }
+.separator::after  { right: 0; }
+
+/* ----- BOTÓN GOOGLE ya veremos luego----- */
+.google-btn {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.google-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.google-btn span {
+    font-size: 20px;
+    margin-right: 8px;
+    background-color: #5D5C61;
+    color: #ffffff;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* ------ MENSAJE DE ERROR ------ */
+.error-message {
+    display: none;
+    color: red;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ------- RESPONSIVE -------- */
+@media (max-width: 500px) {
+    .login-container {
+        padding: 20px;
+    }
+    .login-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .login-container::before {
+        left: -80px;
+        top: -30px;
+        width: 300px;
+        height: 300px;
+    }
+}
+.toast {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: #f8d7da;    
+  color: #721c24;        
+  padding: 0.75rem 1rem;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+.toast.show {
+  opacity: 1;
+}

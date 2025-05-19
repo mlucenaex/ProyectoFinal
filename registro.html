@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro - dIArio IA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-background">
+    <h2>Crea tu cuenta</h2>
+    <div class="login-container">
+      <p id="register-error" class="error-message"></p>
+      <form id="register-form" action="auth/registro.php" method="post">
+        <div class="input-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" placeholder="Contraseña" required>
+        </div>
+        <div class="input-group">
+          <label for="confirm">Confirmar:</label>
+          <input type="password" id="confirm" name="confirm" placeholder="Repite la contraseña" required>
+        </div>
+        <div class="login-actions">
+          <button type="submit" class="login-btn">Registrar</button>
+          <a href="login.html" class="forgot">Volver al login</a>
+        </div>
+        <div id="toast" class="toast">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+  // Validación básica en cliente antes de enviar
+  document.getElementById('register-form').addEventListener('submit', function(e) {
+    var pw = document.getElementById('password').value;
+    var cpw = document.getElementById('confirm').value;
+    if (pw !== cpw) {
+      e.preventDefault();
+      document.getElementById('register-error').textContent = 'Las contraseñas no coinciden.';
+      document.getElementById('register-error').style.display = 'block';
+      return;
+    }
+  });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
